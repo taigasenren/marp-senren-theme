@@ -1,0 +1,99 @@
+/* @theme senren */
+
+/* reset css */
+html, body, section, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+/* クラス名未指定全スライド共通設定 */
+section{
+    background-color: #f3f3f3;
+    border: solid #000 3px;
+    font-family: Sawarabi Gothic;
+    color: #000;
+}
+
+ol {list-style-type: decimal;}
+
+section::before {
+    content: "senren inc.";
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+section::after {
+    content: attr(data-marpit-pagination);
+    color: #000;
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* タイトル */
+section.company_title h1{
+    margin-top: 270px;
+    margin-left:100px;
+
+    color: #000;
+    font-size: 64px;
+    font-weight: 100;
+}
+
+section.company_title h2{
+    margin-top: 30px;
+    margin-left:100px;
+
+    color: #000;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+/* 目次 */
+section.agenda h1{
+    color: #000;
+    font-size: 48px;
+    font-weight: 700;
+    position: absolute;
+    left: center;
+    top: 5px;
+}
+
+section.agenda h2{
+    color: #000;
+    font-size: 20px;
+    font-weight: 100;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+section.agenda_table {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+section.agenda_table li{
+    list-style-type: none;
+    counter-increment: mycounter;
+}
+
+section.agenda_table li:before{
+    content: counter(mycounter, decimal-leading-zero);
+    position: relative;
+    right: 20px;
+    list-style-type: none;
+}
+
+section.agenda_table li:after{
+    list-style-type: none;
+}
