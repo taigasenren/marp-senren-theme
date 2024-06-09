@@ -1,4 +1,5 @@
 /* @theme senren */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sawarabi+Gothic&display=swap');
 
 /* reset css */
 * {
@@ -17,6 +18,7 @@
     --border-color-black: #000;
     --font-family-sawarabi: Sawarabi Gothic;
     --font-family-sans-serif: Noto Sans JP, sans-serif;
+    --font-family-poppins: Poppins, sans-serif;
   }
 
 /* クラス名未指定全スライド共通設定 */
@@ -25,6 +27,8 @@ section {
     background-color: var(--background-main);
     font-family: var(--font-family-sans-serif);
     color: var(--text-color-black);
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 section::before {
@@ -51,6 +55,7 @@ section.page_number_white::after { color: var(--text-color-white);}
 
 /* タイトル */
 section.slide_cover h1 {
+    width:1050px;
     margin-top: 270px;
     margin-left: 100px;
     color: var(--text-color-black);
@@ -60,6 +65,7 @@ section.slide_cover h1 {
 }
 
 section.slide_cover h2 {
+    width:1050px;
     margin-top: 30px;
     margin-left:100px;
     color: var(--text-color-black);
@@ -164,7 +170,7 @@ section.slide_page h3 {
     position:absolute;
     top: 550px;
     left: 400px;
-    font-family: Poppins;
+    font-family: var(--font-family-poppins);
     font-size: 18px;
     font-weight: 100;
 }
@@ -305,14 +311,14 @@ section.company_about h6 {
 
 
 /* 会社概要 会社情報*/
-section.company_infomation {
+section.company_information {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-section.company_infomation h1 {
+section.company_information h1 {
     position: absolute;
     top: 60px;
     left: 50px;
@@ -322,7 +328,7 @@ section.company_infomation h1 {
     font-weight: 100;
 }
 
-section.company_infomation h6 {
+section.company_information h6 {
     position: absolute;
     top: 40px;
     left: 50px;
@@ -332,18 +338,18 @@ section.company_infomation h6 {
     font-weight: 100;
 }
 
-section.company_infomation ul {
+section.company_information ul {
     position: relative;
     top: 30px;
     font-weight: 400;
 }
 
-section.company_infomation li {
+section.company_information li {
     list-style-type: none;
     font-size: 20px;
 }
 
-section.company_infomation li:not(:last-child) { margin-bottom: 20px;}
+section.company_information li:not(:last-child) { margin-bottom: 20px;}
 
 /* 事業紹介 事業内容について*/
 section.business_detail_2 {
@@ -707,6 +713,7 @@ section.support_content h6 {
 }
 
 section.support_content ul {
+    width: 505px;
     margin-top: 60px;
 }
 
@@ -932,6 +939,7 @@ section.bpm_list ul li:nth-child(9){
 }
 
 section.bpm_list ol{
+    width:250px;
     margin-left: 100px;
     font-size: 24px;
     line-height: 42px;
@@ -985,6 +993,7 @@ section.content_list h1 {
     position: absolute;
     top: 270px;
     left: 50px;
+    width: 380px;
     color: var(--text-color-white);
     font-size: 48px;
     font-weight: 600;
@@ -994,6 +1003,7 @@ section.content_list h2 {
     position: absolute;
     top: 400px;
     left: 50px;
+    width: 380px;
     color: var(--text-color-white);
     font-size: 20px;
     font-weight: 400;
@@ -1003,6 +1013,7 @@ section.content_list h6 {
     position: absolute;
     top: 40px;
     left: 50px;
+    width: 380px;
     color: var(--text-color-white);
     font-family: var(--font-family-sawarabi);
     font-size: 20px;
