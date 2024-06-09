@@ -1,99 +1,1046 @@
 /* @theme senren */
 
 /* reset css */
-html, body, section, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+* {
     margin: 0;
     padding: 0;
     border: 0;
+}
+
+/* custom css*/
+:root {
+    --background-main: #f3f3f3;
+    --background-black: #181818;
+    --text-color-black: #000;
+    --text-color-white: #fff;
+    --text-color-green: #008000;
+    --border-color-black: #000;
+    --font-family-sawarabi: Sawarabi Gothic;
+    --font-family-sans-serif: Noto Sans JP, sans-serif;
   }
 
 /* クラス名未指定全スライド共通設定 */
-section{
-    background-color: #f3f3f3;
-    border: solid #000 3px;
-    font-family: Sawarabi Gothic;
-    color: #000;
+section {
+    border: solid 5px var(--border-color-black);
+    background-color: var(--background-main);
+    font-family: var(--font-family-sans-serif);
+    color: var(--text-color-black);
 }
-
-ol {list-style-type: decimal;}
 
 section::before {
     content: "senren inc.";
-    color: #000;
-    font-size: 18px;
-    font-weight: 700;
     position: absolute;
     right: 20px;
     top: 20px;
+    color: var(--text-color-black);
+    font-size: 18px;
+    font-weight: 700;
 }
 
 section::after {
     content: attr(data-marpit-pagination);
-    color: #000;
-    font-size: 18px;
     position: absolute;
     right: 20px;
     bottom: 20px;
+    color: var(--text-color-black);
+    font-size: 18px;
 }
 
-/* タイトル */
-section.company_title h1{
-    margin-top: 270px;
-    margin-left:100px;
+section.logo_white::before { color: var(--text-color-white);}
+section.page_number_white::after { color: var(--text-color-white);}
 
-    color: #000;
+/* タイトル */
+section.slide_cover h1 {
+    margin-top: 270px;
+    margin-left: 100px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
     font-size: 64px;
     font-weight: 100;
 }
 
-section.company_title h2{
+section.slide_cover h2 {
     margin-top: 30px;
     margin-left:100px;
-
-    color: #000;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
     font-size: 20px;
     font-weight: 100;
 }
 
 /* 目次 */
-section.agenda h1{
-    color: #000;
-    font-size: 48px;
-    font-weight: 700;
-    position: absolute;
-    left: center;
-    top: 5px;
-}
-
-section.agenda h2{
-    color: #000;
-    font-size: 20px;
-    font-weight: 100;
-    position: absolute;
-    left: 20px;
-    top: 20px;
-}
-
-section.agenda_table {
-    font-size: 30px;
+section.index {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 24px;
   }
 
-section.agenda_table li{
+section.index h1 {
+    color: var(--text-color-black);
+    position: relative;
+    bottom: 120px;
+    margin-bottom: 60px;
+    font-family: var(--font-family-sawarabi);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+section.index h6 {
+    color: var(--text-color-black);
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.index li {
+    margin-bottom: 30px;
     list-style-type: none;
     counter-increment: mycounter;
 }
 
-section.agenda_table li:before{
+section.index li::before {
     content: counter(mycounter, decimal-leading-zero);
     position: relative;
     right: 20px;
     list-style-type: none;
+    font-weight: 700;
 }
 
-section.agenda_table li:after{
+section.index li::after {
+    content: "";
     list-style-type: none;
+}
+
+/* スライド見出し */
+section.slide_page {
+    background-color: var(--background-black);
+}
+
+section.slide_page h1 {
+    position:absolute;
+    top: 0px;
+    left: 100px;
+    color: var(--text-color-white);
+    font-family: var(--font-family-sawarabi);
+    font-size: 170px;
+    font-weight: 100;
+}
+
+section.slide_page h1::before {
+    content: "";
+    position:absolute;
+    top: 300px;
+    left: 100px;
+    height: 125px;
+    border: #fff solid 1px;
+}
+
+section.slide_page h1::after {
+    content: "";
+    position:absolute;
+    top: 400px;
+    left: 80px;
+    width: 125px;
+    border: #fff solid 1px;
+}
+
+section.slide_page h2 {
+    color: var(--text-color-white);
+    position:absolute;
+    top: 470px;
+    left: 400px;
+    font-family: var(--font-family-sawarabi);
+    font-size: 46px;
+    font-weight: 100;
+}
+
+section.slide_page h3 {
+    color: var(--text-color-white);
+    position:absolute;
+    top: 550px;
+    left: 400px;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+section.slide_page::before {
+    content: "senren inc.";
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: var(--text-color-white);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+section.slide_page::after {
+    content: attr(data-marpit-pagination);
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: var(--text-color-white);
+    font-size: 18px;
+}
+
+/* 会社概要 事業内容について*/
+section.business_detail_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.business_detail_content h1 {
+    color: var(--text-color-black);
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    font-family: var(--font-family-sawarabi);
+    font-size: 30px;
+    font-weight: 100;
+}
+
+section.business_detail_content h6 {
+    color: var(--text-color-black);
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.business_detail_content ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:30px;
+}
+
+section.business_detail_content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
+    width: 200px;
+    height: 200px;
+    margin: 0 40px;
+    padding: 50px;
+    background-color: var(--text-color-white);
+    font-size: 24px;
+    line-height: 40px;
+    border: solid #000 0.5px;
+    border-radius: 200px;
+}
+
+/* 会社概要 株式会社senrenについて*/
+section.company_about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.company_about h1 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 30px;
+    font-weight: 100;
+}
+
+section.company_about h2 {
+    position: relative;
+    top: 20px;
+    padding: 15px 40px;
+    color: var(--text-color-black);
+    font-size: 42px;
+    font-weight: 700;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+
+section.company_about h2::before,
+section.company_about h2::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+
+section.company_about h2::before {left: 5px;}
+section.company_about h2::after {right: 5px;}
+
+section.company_about h3 {
+    position: relative;
+    top: 120px;
+    text-align: center;
+    width: 620px;
+    color: var(--text-color-black);
+    font-size: 20px;
+}
+
+section.company_about h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+
+/* 会社概要 会社情報*/
+section.company_infomation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.company_infomation h1 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 30px;
+    font-weight: 100;
+}
+
+section.company_infomation h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.company_infomation ul {
+    position: relative;
+    top: 30px;
+    font-weight: 400;
+}
+
+section.company_infomation li {
+    list-style-type: none;
+    font-size: 20px;
+}
+
+section.company_infomation li:not(:last-child) { margin-bottom: 20px;}
+
+/* 事業紹介 事業内容について*/
+section.business_detail_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.business_detail_2 h1 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 30px;
+    font-weight: 100;
+}
+
+section.business_detail_2 h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.business_detail_2 li {
+    width: 450px;
+    margin-bottom: 30px;
+    list-style-type: none;
+    font-size: 16px;
+    counter-increment: mycounter;
+}
+
+section.business_detail_2 li:nth-child(1) {
+    position: relative;
+    top:100px;
+    left: 50px;
+}
+
+section.business_detail_2 li:nth-child(2) {
+    position: relative;
+    top: 80px;
+    right: 270px;
+}
+
+section.business_detail_2 li:nth-child(3) {
+    position: relative;
+    bottom: 50px;
+    left: 330px;
+}
+
+section.business_detail_2 li h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+section.business_detail_2 li::before {
+    content: counter(mycounter, decimal);
+    position: relative;
+    top: 50px;
+    right: 70px;
+    list-style-type: none;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+section.business_detail_2 li::after {
+    content: "";
+    list-style-type: none;
+}
+
+/* 事業紹介 */
+section.business_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.business_content h1 {
+    content: "2";
+    position: absolute;
+    top: 65px;
+    left: 50px;
+    list-style-type: none;
+    font-weight: 700;
+    font-size: 90px;
+}
+
+section.business_content h2 {
+    position: absolute;
+    top: 150px;
+    left: 140px;
+    width: 290px;
+    color: var(--text-color-black);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+section.business_content h3 {
+    position: absolute;
+    top: 290px;
+    left: 140px;
+    width: 290px;
+    color: var(--text-color-black);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+section.business_content h4 {
+    position: absolute;
+    top: 400px;
+    left: 60px;
+    width: 390px;
+    color: var(--text-color-black);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+section.business_content h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.business_content ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position:relative;
+    left: 150px;
+    height: 100%;
+    padding: 0 0 0 130px;
+    border-left: 1px solid #000;
+}
+
+section.business_content li {
+    position: relative;
+    width: 450px;
+    list-style-type: none;
+    counter-increment: mycounter;
+    font-size: 16px;
+}
+
+section.business_content li h5 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color-black);
+}
+
+section.business_content li::before {
+    content: counter(mycounter, decimal);
+    position: absolute;
+    top: -10px;
+    left: -70px;
+    list-style-type: none;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+section.business_content li::after {
+    content: "";
+    list-style-type: none;
+}
+
+/* 当社が取り組んでいる課題について */
+section.about_our_challenges {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.about_our_challenges h1 {
+    position: absolute;
+    top: 250px;
+    left: 50px;
+    width: 400px;
+    color: var(--text-color-black);
+    font-size: 42px;
+    font-weight: 600;
+}
+
+section.about_our_challenges h2 {
+    position: absolute;
+    top: 420px;
+    left: 50px;
+    width: 290px;
+    color: var(--text-color-black);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+section.about_our_challenges h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.about_our_challenges ul {
+    position:relative;
+    left: 150px;
+    height: 100%;
+    padding: 0 0 0 130px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-left: 1px solid #000;
+}
+
+section.about_our_challenges li {
+    position: relative;
+    width: 450px;
+    list-style-type: none;
+    counter-increment: mycounter;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+section.about_our_challenges li h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: var(--text-color-black);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+section.about_our_challenges li::before {
+    content: counter(mycounter, decimal);
+    position: absolute;
+    top: 0px;
+    left: -70px;
+    list-style-type: none;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+section.about_our_challenges li::after {
+    content: "";
+    list-style-type: none;
+}
+
+
+/* お取引までの流れ */
+section.transaction_flow_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.transaction_flow_content h1 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 36px;
+    font-weight: 100;
+}
+
+section.transaction_flow_content h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.transaction_flow_content ul {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+section.transaction_flow_content ul::after {
+    position: absolute;
+    top: 100px;
+    width: 1000px;
+    content: "";
+    border: solid #000 1.5px;
+    z-index: -10;
+}
+
+section.transaction_flow_content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 20px;
+    list-style-type: none;
+    font-size: 24px;
+    background-color: var(--text-color-white);
+    border: #000 solid 0.5px;
+    border-radius: 200px;
+    counter-increment: mycounter;
+}
+
+section.transaction_flow_content li::before {
+    content: counter(mycounter, decimal);
+    position: absolute;
+    top: -70px;
+    left: 90px;
+    list-style-type: none;
+    font-weight: 400;
+    font-size: 36px;
+}
+
+/* サポート体制 */
+section.support_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+section.support_content h1 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 36px;
+    font-weight: 100;
+}
+
+section.support_content h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.support_content ul {
+    margin-top: 60px;
+}
+
+section.support_content li {
+    position: relative;
+    height: 150px;
+    list-style-type: none;
+    font-size: 24px;
+    counter-increment: mycounter;
+}
+
+section.support_content li h2{
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+section.support_content img {
+    position: relative;
+    left: 50px;
+}
+
+/* サポート体制　連絡先 */
+section.contact_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.contact_content h1 {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 36px;
+    font-weight: 100;
+}
+
+section.contact_content h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.contact_content h2{
+    color: var(--text-color-black);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+section.contact_content h3{
+    position: relative;
+    top: 80px;
+    color: var(--text-color-black);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* サポート体制　連絡先 */
+section.work_reform_support{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24px;
+}
+
+section.work_reform_support h1 {
+    position: relative;
+    bottom: 70px;
+    text-align: center;
+    margin: 0;
+    color: var(--text-color-black);
+    font-size: 42px;
+    font-weight: 400;
+}
+
+section.work_reform_support h2 {
+    position: relative;
+    bottom: 60px;
+    text-align: center;
+    color: var(--text-color-black);
+    font-size: 24px;
+    font-weight: 200;
+}
+
+section.work_reform_support h3 {
+    padding: 0 150px;
+    margin-bottom: 20px;
+    color: var(--text-color-black);
+    font-size: 36px;
+    font-weight: 400;
+}
+
+section.work_reform_support p{
+    padding: 0 150px;
+}
+
+section.work_reform_support h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+/* 持続可能なBPM */
+section.bpm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+section.bpm h1{
+    position: absolute;
+    top: 0px;
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 400;
+}
+
+section.bpm h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.bpm_list{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+section.bpm_list h1{
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+section.bpm_list h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-black);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.bpm_list ul{
+    text-align: center;
+    margin-bottom: 0px;
+    list-style: none;
+}
+
+section.bpm_list ul li{
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+}
+
+section.bpm_list ul li:nth-child(1){
+    top:410px;
+    left:140px;
+}
+
+section.bpm_list ul li:nth-child(2){
+    top:220px;
+    left:210px;
+}
+
+section.bpm_list ul li:nth-child(3){
+    top:240px;
+    left:380px;
+}
+
+section.bpm_list ul li:nth-child(4){
+    top:470px;
+    left:530px;
+}
+
+section.bpm_list ul li:nth-child(5){
+    top:490px;
+    left:705px;
+}
+
+section.bpm_list ul li:nth-child(6){
+    top:300px;
+    left:780px;
+}
+
+section.bpm_list ul li:nth-child(7){
+    top:210px;
+    left:590px;
+}
+
+section.bpm_list ul li:nth-child(8){
+    top:370px;
+    left:450px;
+}
+
+section.bpm_list ul li:nth-child(9){
+    top:505px;
+    left:310px;
+}
+
+section.bpm_list ol{
+    margin-left: 100px;
+    font-size: 24px;
+    line-height: 42px;
+}
+
+section.color_change_1 ul li:nth-child(1){ font-weight: 700; color: green;}
+section.color_change_1 ol li:nth-child(1){ font-weight: 700; color: green;}
+
+section.color_change_2 ul li:nth-child(2){ font-weight: 700; color: green;}
+section.color_change_2 ol li:nth-child(2){ font-weight: 700; color: green;}
+
+section.color_change_3 ul li:nth-child(3){ font-weight: 700; color: green;}
+section.color_change_3 ol li:nth-child(3){ font-weight: 700; color: green;}
+
+section.color_change_4 ul li:nth-child(4){ font-weight: 700; color: green;}
+section.color_change_4 ol li:nth-child(4){ font-weight: 700; color: green;}
+
+section.color_change_5 ul li:nth-child(5){ font-weight: 700; color: green;}
+section.color_change_5 ol li:nth-child(5){ font-weight: 700; color: green;}
+
+section.color_change_6 ul li:nth-child(6){ font-weight: 700; color: green;}
+section.color_change_6 ol li:nth-child(6){ font-weight: 700; color: green;}
+
+section.color_change_7 ul li:nth-child(7){ font-weight: 700; color: green;}
+section.color_change_7 ol li:nth-child(7){ font-weight: 700; color: green;}
+
+section.color_change_8 ul li:nth-child(8){ font-weight: 700; color: green;}
+section.color_change_8 ol li:nth-child(8){ font-weight: 700; color: green;}
+
+section.color_change_9 ul li:nth-child(9){ font-weight: 700; color: green;}
+section.color_change_9 ol li:nth-child(9){ font-weight: 700; color: green;}
+
+section.content_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-black);
+}
+
+section.content_list ul{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 800px;
+    height: 100%;
+    background-color: #f3f3f3;
+}
+
+section.content_list h1 {
+    position: absolute;
+    top: 270px;
+    left: 50px;
+    color: var(--text-color-white);
+    font-size: 48px;
+    font-weight: 600;
+}
+
+section.content_list h2 {
+    position: absolute;
+    top: 400px;
+    left: 50px;
+    color: var(--text-color-white);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+section.content_list h6 {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    color: var(--text-color-white);
+    font-family: var(--font-family-sawarabi);
+    font-size: 20px;
+    font-weight: 100;
+}
+
+section.content_list ul {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-left: 1px solid #000;
+}
+
+section.content_list li {
+    position: relative;
+    width: 450px;
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 28px;
+    counter-increment: mycounter;
+}
+
+section.content_list li h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: var(--text-color-black);
+    font-weight: 700;
+}
+
+section.content_list li::before {
+    content: counter(mycounter, decimal);
+    position: absolute;
+    top: 0px;
+    left: -90px;
+    list-style-type: none;
+    font-size: 36px;
+    font-weight: 400;
 }
