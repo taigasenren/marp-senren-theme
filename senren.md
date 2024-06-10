@@ -76,7 +76,7 @@ class: company_about
 ---
 
 <!--
-class: company_infomation
+class: company_information
 -->
 
 ###### 会社概要

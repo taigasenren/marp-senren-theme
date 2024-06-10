@@ -77,17 +77,15 @@ section.slide_cover h2 {
 /* 目次 */
 section.index {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
   }
 
 section.index h1 {
     color: var(--text-color-black);
-    position: relative;
-    bottom: 120px;
-    margin-bottom: 60px;
+    position: absolute;
+    top: -10px;
+    left: 560px;
     font-family: var(--font-family-sawarabi);
     font-size: 48px;
     font-weight: 700;
@@ -103,8 +101,13 @@ section.index h6 {
     font-weight: 100;
 }
 
+section.index ol {
+    padding: 10% 200px 0 200px;
+}
+
 section.index li {
     margin-bottom: 30px;
+    font-size: 24px;
     list-style-type: none;
     counter-increment: mycounter;
 }
@@ -342,6 +345,7 @@ section.company_information ul {
     position: relative;
     top: 30px;
     font-weight: 400;
+    padding: 0 200px 0 200px;
 }
 
 section.company_information li {
