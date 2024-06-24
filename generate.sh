@@ -1,0 +1,1 @@
+ ./.engine/node_modules/@marp-team/marp-cli/marp-cli.js --pdf --output pdf/提案書.pdf --allow-local-files --engine ./.engine/engine.js md/sample.md --theme ./marp-themes/senren.css
